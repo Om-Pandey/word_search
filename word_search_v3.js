@@ -216,9 +216,12 @@
 
       // The letter on the board
       var origin = this.matrix[newRow][newCol].letter;
-
+	var rand = Math.random();
       if (origin == '.' || origin == word[i]) {
-        this.matrix[newRow][newCol].letter = word[i];
+	if(this.settings.cap_rand == 1 && rand <= 0.5)
+		this.matrix[newRow][newCol].letter = word[i].toLowerCase();
+	else
+        	this.matrix[newRow][newCol].letter = word[i];
       } else {
         itWorked = false;
       }
